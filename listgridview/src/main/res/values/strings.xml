@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Your Apps</string>
+    <string-array name="appsNames">
+        <item>Google Play Store</item>
+        <item>Google Chrome</item>
+        <item>Facebook</item>
+        <item>Whatsapp</item>
+        <item>Messenger</item>
+        <item>Subway Surfers</item>
+        <item>Google Office</item>
+        <item>Netflix</item>
+        <item>Microsoft Word</item>
+        <item>Twitter</item>
+        <item>Spotify</item>
+    </string-array>
+    <integer-array name="appsIcons">
+        <item>@drawable/play_icon</item>
+        <item>@drawable/chrome_icon</item>
+        <item>@drawable/fb_icon</item>
+        <item>@drawable/whatsapp_icon</item>
+        <item>@drawable/messenger_icon</item>
+        <item>@drawable/subway_icon</item>
+        <item>@drawable/office_icon</item>
+        <item>@drawable/netflix_icon</item>
+        <item>@drawable/word__icon</item>
+        <item>@drawable/twitter_icon</item>
+        <item>@drawable/spotify_icon</item>
+    </integer-array>
+</resources>
