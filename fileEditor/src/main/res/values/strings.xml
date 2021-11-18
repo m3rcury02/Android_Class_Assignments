@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">File Editor</string>
+    <string name="folder_name">Folder Name</string>
+    <string name="file_name">File Name</string>
+    <string name="content">Content</string>
+    <string name="write_file">Write File</string>
+    <string name="read_file">Read File</string>
+    <string name="delete_file">Delete File</string>
+    <string name="done">Operation Done</string>
+    <string name="unavailable">External Storage is Unavailable</string>
+</resources>
