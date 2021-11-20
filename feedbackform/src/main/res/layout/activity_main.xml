@@ -246,5 +246,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/PrefTxt"
+        android:layout_width="330dp"
+        android:layout_height="232dp"
+        android:layout_gravity="fill"
+        android:layout_marginStart="32dp"
+        android:ellipsize="end"
+        android:ems="10"
+        android:gravity="left"
+        android:inputType="textPersonName"
+        android:lines="5"
+        android:maxWidth="330dp"
+        android:maxLines="15"
+        android:minLines="5"
+        android:singleLine="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

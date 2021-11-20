@@ -1,5 +1,6 @@
 package com.example.feedbackform;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,11 +21,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-CheckBox web, deli,supp;
-    StringBuilder toastMsg=new StringBuilder();
-    Calendar cal=Calendar.getInstance();
+    CheckBox web, deli, supp;
+    StringBuilder toastMsg = new StringBuilder();
+    Calendar cal = Calendar.getInstance();
     RatingBar rateBar;
-    String radTxt,switchToast;
+    String radTxt, switchToast;
+    TextView PrefText;
+    String formResult = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,10 @@ CheckBox web, deli,supp;
     }
 
     public void addListenerOnButtonClick() {
-       web = findViewById(R.id.web);
+        web = findViewById(R.id.web);
        deli=findViewById(R.id.deli);
-       supp=findViewById(R.id.support);
+        supp = findViewById(R.id.support);
+        PrefText = findViewById(R.id.PrefTxt);
        EditText name =findViewById(R.id.nametxt);
        Button submit=findViewById(R.id.submit);
        //Date
@@ -95,19 +99,29 @@ CheckBox web, deli,supp;
                if(web.isChecked()|| deli.isChecked()||supp.isChecked())
                    toastMsg.append("\nSatisfied with: ");
                else toastMsg.append("\nSatisfied with nothing");
-               if(web.isChecked())
+               if (web.isChecked())
                    toastMsg.append("\nWebsite");
-               if(deli.isChecked())
+               if (deli.isChecked())
                    toastMsg.append("\nDelivery");
-               if(supp.isChecked())
+               if (supp.isChecked())
                    toastMsg.append("\nCustomer support");
-               toastMsg.append("\nUsage of Service:"+radTxt);
-               toastMsg.append("\nRating: "+rateBar.getRating());
-               toastMsg.append("\nNewsletter: "+switchToast);
-               Toast.makeText(getApplicationContext(),toastMsg.toString(),Toast.LENGTH_LONG).show();
-               toastMsg.setLength(0);
+               toastMsg.append("\nUsage of Service:" + radTxt);
+               toastMsg.append("\nRating: " + rateBar.getRating());
+               toastMsg.append("\nNewsletter: " + switchToast);
+               Toast.makeText(getApplicationContext(), toastMsg.toString(), Toast.LENGTH_LONG).show();
+
+               SharedPreferences shared = getSharedPreferences("demo", MODE_PRIVATE);
+               SharedPreferences.Editor editor = shared.edit();
+               formResult = String.valueOf(toastMsg);
+               editor.putString("str1", formResult);
+               editor.apply();
+               PrefText.setText(formResult);
            }
        });
+        SharedPreferences getShared = getSharedPreferences("demo", MODE_PRIVATE);
+        String value1 = getShared.getString("str1", ".");
 
+        PrefText.setText(value1);
+        toastMsg.setLength(0);
     }
 }
